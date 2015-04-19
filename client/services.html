@@ -1,0 +1,86 @@
+<html>
+	<head>
+		<title>Services-O2M</title>
+	  	
+	  	
+
+		<link rel="icon" href="vector1.png" type="image/png" width="30px">
+		<link rel="stylesheet" type="text/css" href="main.css">
+		<link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300' rel='stylesheet' type='text/css'>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script type="text/javascript">
+
+			$(document).ready(function(){
+				$('a[href^="#"]').on('click',function (e) {
+				    e.preventDefault();
+
+				    var target = this.hash;
+				    var $target = $(target);
+
+				    $('html, body').stop().animate({
+				        'scrollTop': $target.offset().top - 100
+				    }, 900, 'swing', function () {
+				        window.location.hash = target;
+				    });
+				});
+			});
+
+		</script>
+	</head>
+	<body background="back1.jpg" height="100%" size="100%">
+		<div id='layer'>
+			<div id='content' align='center'>	
+				
+				
+				<div id='links'>
+						<a href="Home1.html">Home</a>
+						|
+						<a href="services.html" style=''>Services</a>
+						|
+						<a href="Doc.html">Documentation</a>
+						|
+						<a href="AboutUs.html">About Us</a>	
+				</div>
+				<br>
+				<div id="container">
+					
+					<div id="mywork">
+						<div id="myworkContainer">
+							<div class="singleProject">
+								<br>
+								<img src="mineral.jpeg" width="150px" style='border-radius:50%;'>
+								<h3>Mineral Processing</h3>
+								<p>It is a major division in the science of Extractive Metallurgy,which has been defined as the science and art of extracting metals from their ores, refining them and preparing them for use</p>
+								<br>
+								<a href="sidebar/MinSidebar.html" id="visit" target="_blank"><p id="visitp" style="background:rgb(76, 170, 182);">Visit Website</p></a>
+							</div>
+							<div class="singleProject">
+								<br>
+								<img src="hydro.jpg" width="137px" height="137px" style='border-radius:50%;'>
+								<h3>Hydrometallurgy</h3>
+								<p>It is a method for obtaining metals from their ores.It is a technique involving the use of aqueous chemistry for the recovery of metals from ores,recycled or residual materials</p>
+								<br>
+								<a href="sidebar/HydroSideBar.html" id="visit" target="_blank"><p id="visitp" style="background:rgb(76, 182, 150);">Visit Website</p></a>
+							</div>
+							<div class="singleProject">
+								<br>
+								<img src="pyro.jpeg" width="140px" style='border-radius:50%;'>
+								<h3>Pyrometallurgy</h3>
+								<p>It consists of the thermal treatment of minerals and metallurgical ores to bring about physical and chemical transformations in the materials to enable recovery of valuable metals.</p>
+								<br>
+								<a href="sidebar/PyroSidebar.html" id="visit" target="_blank"><p id="visitp" style="background:rgb(199, 104, 55);">Visit Website</p></a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div id="footer">
+					<ul>
+						<li>&copy; \copy 2015 | MSE Y12</li>
+					</ul>
+				</div>
+			</div>
+			<br>
+		</div>
+	</body>
+</html>

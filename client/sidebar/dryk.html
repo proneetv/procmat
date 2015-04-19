@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Drying Kinetics</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="side.css">
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300' rel='stylesheet' type='text/css'>
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+  <div class="page-container">
+    <div id='links' align="center">
+      <a href="../Home1.html">Home</a>
+      |
+      <a href="../services.html" style=''>Services</a>
+      |
+      <a href="../Doc.html">Documentation</a>
+      |
+      <a href="../AboutUs.html">About Us</a>  
+    </div>
+
+    <script type="text/javascript">
+      function calculate() {
+        console.log('hello');
+        var temp = {
+          "massdry": document.forms["DryKinForm"]["massdry"].value,
+          "Intmois": document.forms["DryKinForm"]["Intmois"].value,
+          "moistcd": document.forms["DryKinForm"]["moistcd"].value,
+          "dryratecp": document.forms["DryKinForm"]["dryratecp"].value,
+          "finmois": document.forms["DryKinForm"]["finmois"].value,
+          "dryratefin": document.forms["DryKinForm"]["dryratefin"].value,
+        }
+        postRequest(temp);
+      }
+      function postRequest(input) {
+       $.post( "http://172.31.76.239:5000/dryk", input)
+       .done(function( data ) {
+        document.getElementById("solution").innerHTML =  data ;
+        document.getElementById("DryKinForm").style.display =  "none" ;
+      });
+     }
+   </script>
+   <div class="content">        
+     <form id="DryKinForm" align="center" method="post" style='background:white;text-transform:capitalize;position:absolute'>
+      <input name="massdry" type="text"  placeholder="mass of dry solid (kg/m2)" autofocus autocomplete='off' onKeyUp="result(this)" style="width:180%;text-transform:capitalize;"><br><br>
+      <input name="Intmois" type="text"  placeholder="initial moisture content in dry solid (%)" style="width:180%;text-transform:capitalize;"><br><br>
+      <input name="moistcd" type='text'  placeholder="moisture in dry solid after constant drying region(kg/kg dry solid )" style="width:180%;text-transform:capitalize;"><br><br>  
+      <input name="dryratecp" type='text'  placeholder="drying rate at critical point X2 *10^(-3)(kg/m2.s)" style="width:180%;text-transform:capitalize;"><br><br>
+      <input name="finmois" type='text'  placeholder="final moisture content in dry solid (%)" style="width:180%;text-transform:capitalize;"><br><br>
+      <input name="dryratefin" type='text'  placeholder="drying rate for final moisture content 10^(-3)(kg/m2.s)" style="width:180%;text-transform:capitalize;"><br><br>
+
+
+      <br>
+      <input type="button" name="submit" value="Calculate" onclick="calculate()" style="font-size:21px;background:black;opacity:0.8;padding:5px;color:white;margin-left:167px;border:1px solid #007d9a;text-transform:capitalize;cursor:pointer;box-shadow:0px 0px 1px grey;position:relative">
+    </form>     
+    <div id="solution" style='text-transform:capitalize;position:absolute;'>
+      
+    </div>   
+  </div> 
+
+  
+  <div class="sidebar-menu">
+    <header class="logo"> <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a href="#"> 
+      <img id="logo" src="iitkwhitelogo.png" width="80px" alt="Logo"/> 
+    </a> </header>
+    <div></div>
+    <div class="menu">
+      <ul id="menu" >
+
+        <li id="menu-comunicacao" ><a href="#"><span>Drying</span></a>
+          <ul id="menu-comunicacao-sub" >
+
+
+            <li id="menu-mensagens" style="width: 250px" ><a href="dryk.html">Drying Kinetics</a>
+            </li>
+            <li id="menu-mensagens" style="width: 250px" ><a href="dry.html">Drying</a>
+            </li>
+            
+          </ul>
+        </li>
+        
+        <li id="menu-comunicacao" ><a href="calc.html"><span>Calcination</span></a></li>
+
+        <li id="menu-comunicacao" ><a href="#"><span>Roasting</span></a>
+          <ul id="menu-comunicacao-sub" >
+
+
+            <li id="menu-mensagens" style="width: 250px" ><a href="calor.html">Calorific Value</a>
+            </li>
+            <li id="menu-mensagens" style="width: 250px" ><a href="elldia.html">Ellingham Diagram</a>
+            </li>
+            <li id="menu-mensagens" style="width: 250px" ><a href="#">Roasters</a>
+              <ul id="menu-mensagens-sub" >
+
+                <li id="menu-mensagens-enviadas" ><a href="#">Multiple Hearth</a></li>
+                <li id="menu-mensagens-enviadas" ><a href="#">Fluidised Bed Roaster</a></li>
+
+              </ul>
+            </li>
+            
+          </ul>
+        </li>
+
+        <li id="menu-comunicacao" ><a href="#"><span>Smelters</span></a>
+          <ul id="menu-comunicacao-sub" >
+
+
+            <li id="menu-mensagens" style="width: 250px" ><a href="roast.html">Flash Smelter</a>
+            </li>
+            <li id="menu-mensagens" style="width: 250px" ><a href="impsmelt.html">Imperial Smelter</a>
+            </li>
+
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script> 
+<script>
+  var toggle = true;
+
+  $(".sidebar-icon").click(function() {                
+    if (toggle)
+    {
+      $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+      $("#menu span").css({"position":"absolute"});
+    }
+    else
+    {
+      $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+      setTimeout(function() {
+        $("#menu span").css({"position":"relative"});
+      }, 400);
+    }
+
+    toggle = !toggle;
+  });
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

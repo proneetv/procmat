@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Home-O2M</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300' rel='stylesheet' type='text/css'>
+	  	</head>
+<body background="back1.jpg" height="100%" size="100%"; style="font-family:Arial, Verdana;background-color:#fff;">
+    <!-- use jssor.slider.min.js instead for release -->
+    <!-- jssor.slider.min.js = (jssor.js + jssor.slider.js) -->
+    <script type="text/javascript" src="./js/jssor.js"></script>
+    <script type="text/javascript" src="./js/jssor.slider.js"></script>
+   <script>
+        jssor_slider1_starter = function (containerId) {
+            var options = {
+                $AutoPlay: true,                                   //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+                $DragOrientation: 1                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+            };
+
+            var jssor_slider1 = new $JssorSlider$(containerId, options);
+        };
+    </script>
+    <!-- Jssor Slider Begin -->
+    <!-- To move inline styles to css file/block, please specify a class name for each element. -->  <!-- Jssor Slider Begin -->
+    <!-- To move inline styles to css file/block, please specify a class name for each element. --> 
+	<div id='layer'>
+			<div id='content' align='center'>
+				<div id='links'>
+						<a href="Home1.html">Home</a>
+						|
+						<a href="services.html" style=''>Services</a>
+						|
+						<a href="Doc.html">Documentation</a>
+						|
+						<a href="AboutUs.html">About Us</a>	
+				</div>
+	</div>
+	</div>
+    <div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 600px;
+        height: 300px; ">
+
+        <!-- Slides Container -->
+        <div u="slides" style="cursor: move; position: absolute; left: 400px; top: 20px; width: 600px; height: 400px;
+            overflow: hidden;">
+            <div><img u="image" src="image4.jpg" ></div>
+            <div><img u="image" src="image2.jpg" ></div>
+            <div><img u="image" src="image3.jpg" ></div>
+            <div><img u="image" src="image5.jpg" ></div>
+			<div><img u="image" src="image6.jpg" ></div>
+			<div><img u="image" src="image7.jpg" ></div>
+        </div>
+		
+		
+		<div class="transbox0";align="left"; text-case="Capitalize">	
+		<h2 align="center"style="color:#B52323;">O2M SERVICES</h2><br>
+		<p>It is a market leader in the supply of services related to metallurgical processes, right from ore extraction to its conversion to metal. It is being dominantly used by several mining and quarrying industries. Our business focuses on providing customers with innovative, cost effective complete wear liner solutions for mills and crushers, designed to increase performance and reduce operating costs in their grinding and crushing operations.</p>
+		</div>
+		
+	
+		
+		<a style="display: none" href="http://www.jssor.com">Carousel Slider</a>
+        <!-- Trigger -->
+        <script>
+            jssor_slider1_starter('slider1_container');
+        </script>
+        
+        
+    </div>
+    <!-- Jssor Slider End -->
+</body>
+</html>

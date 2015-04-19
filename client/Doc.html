@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<title>Documentation-O2M</title>
+	  	
+	  	
+
+		<link rel="icon" href="vector1.png" type="image/png" width="30px">
+		<link rel="stylesheet" type="text/css" href="main.css">
+		<link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300' rel='stylesheet' type='text/css'>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script type="text/javascript">
+
+			$(document).ready(function(){
+				$('a[href^="#"]').on('click',function (e) {
+				    e.preventDefault();
+
+				    var target = this.hash;
+				    var $target = $(target);
+
+				    $('html, body').stop().animate({
+				        'scrollTop': $target.offset().top - 100
+				    }, 900, 'swing', function () {
+				        window.location.hash = target;
+				    });
+				});
+			});
+
+		</script>
+	</head>
+	<body background="back1.jpg" height="100%" size="100%"; style="font-family:Arial, Verdana;background-color:#fff;">
+		<div id='layer'>
+			<div id='content' align='center'>	
+				
+				
+				<div id='links'>
+						<a href="Home1.html">Home</a>
+						|
+						<a href="services.html" style=''>Services</a>
+						|
+						<a href="Doc.html">Documentation</a>
+						|
+						<a href="AboutUs.html">About Us</a>	
+				</div>
+				<br>
+				
+				<div id="footer">
+					<ul>
+						<li>&copy; \copy 2015 | MSE Y12</li>
+					</ul>
+				</div>
+			</div>
+			<br>
+		</div>
+	</body>
+</html>
