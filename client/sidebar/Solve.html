@@ -39,6 +39,10 @@
        .done(function( data ) {
         document.getElementById("solution").innerHTML =  data ;
         document.getElementById("solveForm").style.display =  "none" ;
+        })
+       .fail(function( data ) {
+        document.getElementById("solution").innerHTML =  "Invalid query!" ;
+        document.getElementById("solveForm").style.display =  "none" ;
       });
      }
    </script>

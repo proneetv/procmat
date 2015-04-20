@@ -47,6 +47,10 @@
        .done(function( data ) {
         document.getElementById("solution").innerHTML =  data ;
         document.getElementById("RoastForm").style.display =  "none" ;
+        })
+       .fail(function( data ) {
+        document.getElementById("solution").innerHTML =  "Invalid query!" ;
+        document.getElementById("RoastForm").style.display =  "none" ;
       });
      }
    </script>

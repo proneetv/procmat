@@ -40,6 +40,10 @@
        .done(function( data ) {
         document.getElementById("solution").innerHTML =  data ;
         document.getElementById("SieveForm").style.display =  "none" ;
+        })
+       .fail(function( data ) {
+        document.getElementById("solution").innerHTML =  "Invalid query!" ;
+        document.getElementById("SieveForm").style.display =  "none" ;
       });
      }
    </script>

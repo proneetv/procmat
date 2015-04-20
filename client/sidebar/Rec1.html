@@ -36,6 +36,10 @@
        .done(function( data ) {
         document.getElementById("solution").innerHTML =  data ;
         document.getElementById("Rec1Form").style.display =  "none" ;
+        })
+       .fail(function( data ) {
+        document.getElementById("solution").innerHTML =  "Invalid query!" ;
+        document.getElementById("Rec1Form").style.display =  "none" ;
       });
      }
    </script>
