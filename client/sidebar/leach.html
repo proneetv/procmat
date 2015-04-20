@@ -14,7 +14,7 @@
 <body>
   <div class="page-container">
     <div id='links' align="center">
-      <a href="../Home1.html">Home</a>
+      <a href="../index.html">Home</a>
       |
       <a href="../services.html" style=''>Services</a>
       |
@@ -36,7 +36,7 @@
         postRequest(temp);
       }
       function postRequest(input) {
-       $.post( "http://127.0.0.1:5000/leachFOS", input)
+       $.post( "http://172.31.76.239:5000/leachFOS", input)
        .done(function( data ) {
         document.getElementById("solution").innerHTML =  data ;
         document.getElementById("LeachForm").style.display =  "none" ;

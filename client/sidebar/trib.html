@@ -14,7 +14,7 @@
 <body>
   <div class="page-container">
     <div id='links' align="center">
-      <a href="../Home1.html">Home</a>
+      <a href="../index.html">Home</a>
       |
       <a href="../services.html" style=''>Services</a>
       |
@@ -34,7 +34,7 @@
         postRequest(temp);
       }
       function postRequest(input) {
-       $.post( "http://172.31.76.239:5000/trib", input)
+       $.post( "http://172.31.76.239:5000/tribo", input)
        .done(function( data ) {
         document.getElementById("solution").innerHTML =  data ;
         document.getElementById("tribform").style.display =  "none" ;
