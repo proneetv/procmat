@@ -1,3 +1,4 @@
+from __future__ import division
 from datetime import timedelta
 from flask import make_response, request, current_app, Flask, jsonify, json, request
 from functools import update_wrapper
@@ -160,17 +161,17 @@ def imperialsmelting(ZNOp, PBOp, FEOp, SIOp, sc, ZNp, CO2CO):
     Preheated_T = heat_deficit / (Y * Cp)
     
     
-    s = s + "moles of zinc in vapour: " + str(ZNf)
-    s = s + "<BR>moles of CO2 " + str(COf)
-    s = s + "<BR>moles of CO " + str(CO2f)
-    s = s + "<BR>moles of O2 " + str(O2f)
-    s = s + "<BR>moles of N2 " + str(N2f1)
-    s = s + "<BR>amount of air " + str(air_amount)
-    s = s + "<BR>moles of lead " + str(liq_lead)
-    s = s + "<BR>moles of FeO " + str(slagFEO)
-    s = s + "<BR>moles of FeO " + str(slagSIO2)
-    s = s + "<BR>amount of coke " + str(coke_amountf)
-    s = s + "<BR>Preaheated temperature " + str(Preheated_T) +"K"
+    s = "moles of zinc in vapour: " + str(round(ZNf,2))
+    s = s + "<BR>moles of CO2: " + str(round(COf,2))
+    s = s + "<BR>moles of CO: " + str(round(CO2f,2))
+    s = s + "<BR>moles of O2: " + str(round(O2f,2))
+    s = s + "<BR>moles of N2: " + str(round(N2f1,2))
+    s = s + "<BR>amount of air: " + str(round(air_amount,2))
+    s = s + "<BR>moles of lead: " + str(round(liq_lead,2))
+    s = s + "<BR>moles of FeO: " + str(round(slagFEO,2))
+    s = s + "<BR>moles of FeO: " + str(round(slagSIO2,2))
+    s = s + "<BR>amount of coke: " + str(round(coke_amountf,2))
+    s = s + "<BR>Preaheated temperature: " + str(round(Preheated_T,2)) +"K"
     return s
 
 
@@ -183,14 +184,15 @@ def Decomposition_Temp(x1,y1,x2,y2):
 def dryk(m,Xi,Xc,Rc,Xf,Rf):
     Rc = Rc * (10**(-3))
     Rf = Rf * (10**(-3))
-    y1 = Xi / (100 - Xi)
-    y3 = Xf / (100 - Xf)
-    tc = (m * ( y1 - Xc ) ) / (Rc)
-    tf = (m * (( Xc- y3)/ (Rc - Rf))) * ((math.log(Rc/Rf)))
+    y1 = Xi / (100.0 - Xi)
+    y3 = Xf / (100.0 - Xf)
+    tc = (m * ( y1 - Xc ) ) / float(Rc)
+    tf = (m * (( Xc- y3)/ 1.0*(Rc - Rf))) * ((math.log(Rc/Rf)))
     tt = tc + tf
 
-    s = "Constant falling rate time: " + tc + "sec" + "<BR>First falling rate time:" + tf + "sec<BR>"
-    s = s + "Total time: " + tt + "sec"
+    s = "Constant falling rate time: " + str(round(tc,2)) + "sec" + "<BR>First falling rate time: " + str(round(tf,2)) + "sec<BR>"
+    s = s + "Total time: " + str(round(tt,2)) + "sec"
+    return s
 
 def drying_time(pd,dp,Ms,e,Tw,Tgi,Xi,Xf,Vsc):
     da=1.1
@@ -673,7 +675,7 @@ def api_hydrocyc():
     mass9 = float(request.form["mass9"])
     cost = float(request.form["cost"])
     mass_ratained = [mass0,mass1,mass2,mass3,mass4,mass5,mass6,mass7,mass8,mass9]
-    result=hydrocyclone(VolFrac, SpecSol, SpecFl, vel, cycDia, cost,mass_ratained,10)
+    x=hydrocyclone(VolFrac, SpecSol, SpecFl, vel, cycDia, cost,mass_ratained,10)
     return x
 
 # HYDROMETALLURGY -- ROUTE fns
@@ -686,7 +688,7 @@ def api_solext():
     CuAq = float(request.form["CuAq"])
     CuOrg = float(request.form["CuOrg"])
     a,b = solvent_extraction(Qaq,Qorg,CuAq,CuOrg)
-    return "Solvent Extraction: " + str(a) + " & " + str(b)
+    return "Solvent Extraction:- <BR>" + str(round(a,2)) + " <BR> " + str(round(b,2))
 
 @app.route('/cement', methods = ['POST'])
 @crossdomain(origin='*', headers='Content-Type')
@@ -697,7 +699,7 @@ def api_cement():
     Temp = int(request.form["Temp"])
     Fe = float(request.form["Fe"])
     a = cementation(Ered,Eoxd,ne,Temp,Fe)
-    return "E-O-Cell: " + str(a[0]) + "E-Conc: " + str(a[1])
+    return "E-O-Cell: " + str(round(a[0],2)) + "<BR>E-Conc: " + str(a[1])
 
 @app.route('/leachFOS', methods = ['POST'])
 @crossdomain(origin='*', headers='Content-Type')
